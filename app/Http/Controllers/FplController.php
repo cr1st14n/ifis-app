@@ -6,6 +6,7 @@ use datatables;
 use App\Models\fpl;
 use App\Http\Requests\StorefplRequest;
 use App\Http\Requests\UpdatefplRequest;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class FplController extends Controller
 {
@@ -14,12 +15,12 @@ class FplController extends Controller
      */
     public function render()
     {
-        //     $datos = fpl::filtro($this->filtros)
-        //         ->orderBy('id', 'DESC')
-        //         ->paginate(150);
-        //     return view('livewire.fpl.fpl-mostrar', compact('datos'));
-        $fpl = fpl::limit(10000)->get();
-        return datatables()->of($fpl)->tojson();
+        // $fpl = fpl::orderBy('id', 'asc')->paginate(10);
+        // return datatables()->of($fpl)->tojson();
+
+        return datatables()
+            ->eloquent(fpl::query())
+            ->toJson();
     }
 
 

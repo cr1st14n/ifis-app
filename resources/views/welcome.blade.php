@@ -995,38 +995,40 @@
             url = 'v1/query_fpl';
 
             var table = $('#example2').DataTable({
+                serverSide: true,
+                processing: true,
                 ajax: url,
                 lengthChange: false,
                 buttons: ['copy', 'excel', 'pdf', 'print'],
                 columns: [{
-                    data: 'fechaHora'
-                },
-                {
-                    data: 'c1'
-                },
-                {
-                    data: 'c2'
-                },
-                {
-                    data: 'c3'
-                },
-                {
-                    data: 'c4'
-                },
-                {
-                    data: 'c5'
-                },
-                {
-                    data: 'c7'
-                },
-                {
-                    data: 'cabecera'
-                },
-                {
-                    data: 'cabecera'
-                },
+                        data: 'fechaHora'
+                    },
+                    {
+                        data: 'c1'
+                    },
+                    {
+                        data: 'c2'
+                    },
+                    {
+                        data: 'c3'
+                    },
+                    {
+                        data: 'c4'
+                    },
+                    {
+                        data: 'c5'
+                    },
+                    {
+                        data: 'c7'
+                    },
+                    {
+                        data: 'cabecera'
+                    },
+                    {
+                        data: 'cabecera'
+                    },
 
-             ],
+                ],
             });
 
             table.buttons().container()
