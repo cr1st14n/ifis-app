@@ -15,11 +15,14 @@ class FplController extends Controller
      */
     public function render()
     {
-        // $fpl = fpl::orderBy('id', 'asc')->paginate(10);
-        // return datatables()->of($fpl)->tojson();
+        $year = 2023;
+        $month = 5;
+        $query = fpl::query();
+        $query->whereMonth('fechaHora', $month);
+        $query->whereYear('fechaHora', $year);
 
         return datatables()
-            ->eloquent(fpl::query())
+            ->eloquent($query)
             ->toJson();
     }
 
