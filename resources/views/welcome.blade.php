@@ -168,61 +168,68 @@
                     </div>
                 </div>
                 <!--end breadcrumb-->
-                <h6 class="mb-0 text-uppercase">Datos Importados</h6>
-                <form id="form_busqueda_1">
-                    <div class="row">
-                        <div class="col-1">
-                            <select name="" id="" class=" form-control">
-                                <option value="1">Enero</option>
-                                <option value="2">Febrero</option>
-                                <option value="3">Marzo</option>
-                                <option value="4">Abril</option>
-                                <option value="5">Mayo</option>
-                                <option value="6">Junio</option>
-                                <option value="7">Julio</option>
-                                <option value="8">Agosto</option>
-                                <option value="9">Septiembre</option>
-                                <option value="10">Octubre</option>
-                                <option value="11">Noviembre</option>
-                                <option value="12">Diciembre</option>
-                            </select>
-                        </div>
-                        <div class="col-1">
-                            <input type="number" class="form-control " value="2023" required max="2023"
-                                min="2008">
-                        </div>
-                        <div class="col-1">
-                            <button class="btn btn-danger" type="submit">FIltrar <i
-                                    class="bx bx-search-alt-2"></i></button>
-                        </div>
+                <div class="card">
+                    <div class=" card-body">
+                        <form id="form_busqueda_1">
+                            <div class="row">
+                                <div class="col-1">
+                                    <select class=" form-control form-control-sm" name="month">
+                                        <option value="1">Enero</option>
+                                        <option value="2">Febrero</option>
+                                        <option value="3">Marzo</option>
+                                        <option value="4">Abril</option>
+                                        <option value="5">Mayo</option>
+                                        <option value="6">Junio</option>
+                                        <option value="7">Julio</option>
+                                        <option value="8">Agosto</option>
+                                        <option value="9">Septiembre</option>
+                                        <option value="10">Octubre</option>
+                                        <option value="11">Noviembre</option>
+                                        <option value="12">Diciembre</option>
+                                    </select>
+                                </div>
+                                <div class="col-1">
+                                    <input type="number" class="form-control  form-control-sm" value="2023"
+                                        name="year" required max="2023" min="2008">
+                                </div>
+                                <div class="col-1">
+                                    <button class="btn btn-danger btn-sm" type="submit">FIltrar <i
+                                            class="bx bx-search-alt-2"></i></button>
+                                </div>
+                                <div class="col-9" style="text-align: right">
+                                    <button class="btn btn-dark btn-sm" type="button" id="btn_busquedaParam">Filtro
+                                        Parametrizado <i class="bx bx-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-                <hr />
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example2" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                        <th>Salary</th>
-                                        <th>Salary</th>
-                                        <th>Salary</th>
+                                        <th>RECEPCIONADO</th>
+                                        <th>MATRICULA / # VUELO</th>
+                                        <th>REGLA</th>
+                                        <th>TIPO Y CATEGORIA</th>
+                                        <th>PROCEDENCIA</th>
+                                        <th>DESTINO</th>
+                                        <th>CABECERA</th>
+                                        <th>MENSAJE</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>RECEPCIONADO</th>
+                                        <th>MATRICULA / # VUELO</th>
+                                        <th>REGLA</th>
+                                        <th>TIPO Y CATEGORIA</th>
+                                        <th>PROCEDENCIA</th>
+                                        <th>DESTINO</th>
+                                        <th>CABECERA</th>
+                                        <th>MENSAJE</th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -339,6 +346,53 @@
         </div>
     </div>
     <!--end switcher-->
+    {{-- todo / MODAL START --}}
+    <div class="modal fade" id="mod_busqParametrica" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">FPL - FILTRAR</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="formBuscarParam">
+                    <div class="modal-body">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <label for="basic-url" class="form-label">Ingrese datos.</label>
+                                <div class="input-group mb-3 input-group-sm" name='m'> <span
+                                        class="input-group-text input-group-sm" id="basic-addon1">#....
+                                        Matricula</span>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Username"
+                                        aria-label="Username" aria-describedby="basic-addon1" name="m">
+                                </div>
+                                <div class="input-group mb-3 input-group-sm">
+                                    <span class="input-group-text" id="basic-addon2">Fecha Inicial:</span>
+                                    <input type="date" class="form-control" aria-label="Recipient's username"
+                                        aria-describedby="basic-addon2" name="f1">
+                                </div>
+                                <div class="input-group mb-3 input-group-sm">
+                                    <span class="input-group-text" id="basic-addon3">Fecha Final:</span>
+                                    <input type="date" class="form-control" id="basic-url"
+                                        aria-describedby="basic-addon3" name="f2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Continuar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    {{-- todo / MODAL END --}}
+
+
     <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!--plugins-->
@@ -348,55 +402,14 @@
     <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
     <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    {{-- todo / funciones Naabol --}}
 
 
-    <script>
-        $(document).ready(function() {
-            url = 'v1/query_fpl';
 
-            var table = $('#example2').DataTable({
-                serverSide: true,
-                processing: true,
-                ajax: url,
-                lengthChange: true,
-                buttons: ['copy', 'excel', 'pdf', 'print'],
-                columns: [{
-                        data: 'fechaHora'
-                    },
-                    {
-                        data: 'c1'
-                    },
-                    {
-                        data: 'c2'
-                    },
-                    {
-                        data: 'c3'
-                    },
-                    {
-                        data: 'c4'
-                    },
-                    {
-                        data: 'c5'
-                    },
-                    {
-                        data: 'c7'
-                    },
-                    {
-                        data: 'cabecera'
-                    },
-                    {
-                        data: 'cabecera'
-                    },
-
-                ],
-            });
-
-            table.buttons().container()
-                .appendTo('#example2_wrapper .col-md-6:eq(0)');
-        });
-    </script>
+    <script></script>
     <!--app JS-->
     <script src="assets/js/app.js"></script>
+    <script type="module" src="{{asset('js/fpl/fun1.js')}}"></script>
 </body>
 
 </html>

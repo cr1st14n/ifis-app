@@ -6,6 +6,7 @@ use datatables;
 use App\Models\fpl;
 use App\Http\Requests\StorefplRequest;
 use App\Http\Requests\UpdatefplRequest;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class FplController extends Controller
@@ -13,14 +14,31 @@ class FplController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function render()
+    public function render(Request $request)
     {
-        $year = 2023;
-        $month = 5;
-        $query = fpl::query();
-        $query->whereMonth('fechaHora', $month);
-        $query->whereYear('fechaHora', $year);
+        switch ($request->input('tipo')) {
+            case '1':
+                $year = $request->input('year');
+                $month = $request->input('month');
+                $query = fpl::query();
 
+                $query->whereMonth('fechaHora', $month);
+                $query->whereYear('fechaHora', $year);
+
+                break;
+            case '2':
+                $f1 = $request->input('f1');
+                $f2 = $request->input('f2');
+                $ma = $request->input('m');
+                $query = fpl::query();
+                $query->where('c1', 'iLike', $ma . '%');
+                $query->whereBetween('fechaHora', [$f1, $f2]);
+                break;
+
+            default:
+                # code...
+                break;
+        }
         return datatables()
             ->eloquent($query)
             ->toJson();
