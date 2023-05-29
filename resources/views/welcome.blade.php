@@ -6,26 +6,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+    <link rel="icon" href="public/assets/images/naabol.png" type="image/png" />
     <!--plugins-->
-    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-    <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
-    <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="public/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <link href="public/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="public/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="public/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
     <!-- loader-->
-    <link href="assets/css/pace.min.css" rel="stylesheet" />
-    <script src="assets/js/pace.min.js"></script>
+    <link href="public/assets/css/pace.min.css" rel="stylesheet" />
+    <script src="public/assets/js/pace.min.js"></script>
     <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
+    <link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/assets/css/bootstrap-extended.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="assets/css/app.css" rel="stylesheet">
-    <link href="assets/css/icons.css" rel="stylesheet">
+    <link href="public/assets/css/app.css" rel="stylesheet">
+    <link href="public/assets/css/icons.css" rel="stylesheet">
     <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="assets/css/dark-theme.css" />
-    <link rel="stylesheet" href="assets/css/semi-dark.css" />
-    <link rel="stylesheet" href="assets/css/header-colors.css" />
-    <title>NAABOL - FPL</title>
+    <link rel="stylesheet" href="public/assets/css/dark-theme.css" />
+    <link rel="stylesheet" href="public/assets/css/semi-dark.css" />
+    <link rel="stylesheet" href="public/assets/css/header-colors.css" />
+    <title>NAABOL</title>
 </head>
 
 <body>
@@ -33,28 +34,25 @@
     <div class="wrapper">
         <!--sidebar wrapper -->
         <div class="sidebar-wrapper" data-simplebar="true">
-            <div class="sidebar-header">
+            <div class="sidebar-header ">
                 <div>
-                    <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+                    <img src="public/assets/images/naabol.png" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
-                    <h4 class="logo-text">NAABOL - FPL</h4>
+                    <h4 class="logo-text">NAABOL</h4>
                 </div>
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
                 </div>
             </div>
             <!--navigation-->
-            <ul class="metismenu" id="menu">
+            <ul class=" metismenu" id="menu">
+                <li class="menu-label">Plande de Vuelo</li>
                 <li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                    <a href="#" onclick="viewNav('fpl')">
+                        <div class="parent-icon"><i class='bx bx-table'></i>
                         </div>
-                        <div class="menu-title">Planes de Vuelo</div>
+                        <div class="menu-title">F P L</div>
                     </a>
-                    <ul>
-                        <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>FPL</a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
             <!--end navigation-->
@@ -66,7 +64,7 @@
                 <nav class="navbar navbar-expand">
                     <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
                     </div>
-                    <div class="search-bar flex-grow-1">
+                    <div class="search-bar flex-grow-1" hidden>
                         <div class="position-relative search-bar-box">
                             <input type="text" class="form-control search-control" placeholder="Type to search...">
                             <span class="position-absolute top-50 search-show translate-middle-y"><i
@@ -127,18 +125,332 @@
                                     </div>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown dropdown-large" hidden>
+                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative"
+                                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="alert-count">7</span>
+                                    <i class='bx bx-bell'></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:;">
+                                        <div class="msg-header">
+                                            <p class="msg-header-title">Notifications</p>
+                                            <p class="msg-header-clear ms-auto">Marks all as read</p>
+                                        </div>
+                                    </a>
+                                    <div class="header-notifications-list">
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-primary text-primary"><i
+                                                        class="bx bx-group"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">New Customers<span
+                                                            class="msg-time float-end">14 Sec
+                                                            ago</span></h6>
+                                                    <p class="msg-info">5 new user registered</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-danger text-danger"><i
+                                                        class="bx bx-cart-alt"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">New Orders <span class="msg-time float-end">2
+                                                            min
+                                                            ago</span></h6>
+                                                    <p class="msg-info">You have recived new orders</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-success text-success"><i
+                                                        class="bx bx-file"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">24 PDF File<span
+                                                            class="msg-time float-end">19 min
+                                                            ago</span></h6>
+                                                    <p class="msg-info">The pdf files generated</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-warning text-warning"><i
+                                                        class="bx bx-send"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Time Response <span
+                                                            class="msg-time float-end">28 min
+                                                            ago</span></h6>
+                                                    <p class="msg-info">5.1 min avarage time response</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-info text-info"><i
+                                                        class="bx bx-home-circle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">New Product Approved <span
+                                                            class="msg-time float-end">2 hrs ago</span></h6>
+                                                    <p class="msg-info">Your new product has approved</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-danger text-danger"><i
+                                                        class="bx bx-message-detail"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">New Comments <span
+                                                            class="msg-time float-end">4 hrs
+                                                            ago</span></h6>
+                                                    <p class="msg-info">New customer comments recived</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-success text-success"><i
+                                                        class='bx bx-check-square'></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Your item is shipped <span
+                                                            class="msg-time float-end">5 hrs
+                                                            ago</span></h6>
+                                                    <p class="msg-info">Successfully shipped your item</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-primary text-primary"><i
+                                                        class='bx bx-user-pin'></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">New 24 authors<span
+                                                            class="msg-time float-end">1 day
+                                                            ago</span></h6>
+                                                    <p class="msg-info">24 new authors joined last week</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="notify bg-light-warning text-warning"><i
+                                                        class='bx bx-door-open'></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Defense Alerts <span
+                                                            class="msg-time float-end">2 weeks
+                                                            ago</span></h6>
+                                                    <p class="msg-info">45% less alerts last 4 weeks</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a href="javascript:;">
+                                        <div class="text-center msg-footer">View All Notifications</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown dropdown-large"hidden>
+                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative"
+                                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="alert-count">8</span>
+                                    <i class='bx bx-comment'></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:;">
+                                        <div class="msg-header">
+                                            <p class="msg-header-title">Messages</p>
+                                            <p class="msg-header-clear ms-auto">Marks all as read</p>
+                                        </div>
+                                    </a>
+                                    <div class="header-message-list">
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-1.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Daisy Anderson <span
+                                                            class="msg-time float-end">5 sec
+                                                            ago</span></h6>
+                                                    <p class="msg-info">The standard chunk of lorem</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-2.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Althea Cabardo <span
+                                                            class="msg-time float-end">14
+                                                            sec ago</span></h6>
+                                                    <p class="msg-info">Many desktop publishing packages</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-3.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Oscar Garner <span
+                                                            class="msg-time float-end">8 min
+                                                            ago</span></h6>
+                                                    <p class="msg-info">Various versions have evolved over</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-4.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Katherine Pechon <span
+                                                            class="msg-time float-end">15
+                                                            min ago</span></h6>
+                                                    <p class="msg-info">Making this the first true generator</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-5.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Amelia Doe <span
+                                                            class="msg-time float-end">22 min
+                                                            ago</span></h6>
+                                                    <p class="msg-info">Duis aute irure dolor in reprehenderit</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-6.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Cristina Jhons <span
+                                                            class="msg-time float-end">2 hrs
+                                                            ago</span></h6>
+                                                    <p class="msg-info">The passage is attributed to an unknown</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-7.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">James Caviness <span
+                                                            class="msg-time float-end">4 hrs
+                                                            ago</span></h6>
+                                                    <p class="msg-info">The point of using Lorem</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-8.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Peter Costanzo <span
+                                                            class="msg-time float-end">6 hrs
+                                                            ago</span></h6>
+                                                    <p class="msg-info">It was popularised in the 1960s</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-9.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">David Buckley <span
+                                                            class="msg-time float-end">2 hrs
+                                                            ago</span></h6>
+                                                    <p class="msg-info">Various versions have evolved over</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-10.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Thomas Wheeler <span
+                                                            class="msg-time float-end">2 days
+                                                            ago</span></h6>
+                                                    <p class="msg-info">If you are going to use a passage</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex align-items-center">
+                                                <div class="user-online">
+                                                    <img src="public/assets/images/avatars/avatar-11.png"
+                                                        class="msg-avatar" alt="user avatar">
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="msg-name">Johnny Seitz <span
+                                                            class="msg-time float-end">5 days
+                                                            ago</span></h6>
+                                                    <p class="msg-info">All the Lorem Ipsum generators</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a href="javascript:;">
+                                        <div class="text-center msg-footer">View All Messages</div>
+                                    </a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/avatars/usernaabol.png" class="user-img" alt="user avatar">
+                            <img src="public/assets/images/avatars/usernaabol.png" class="user-img"
+                                alt="user avatar">
                             <div class="user-info ps-3">
-                                <p class="user-name mb-0">NAABOL</p>
-                                <p class="designattion mb-0">---</p>
+                                <p class="user-name mb-0">Naabol</p>
+                                <p class="designattion mb-0">Usuario</p>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="javascript:;"><i
+                                        class="bx bx-user"></i><span>Perfil</span></a>
+                            </li>
                             <li>
                                 <div class="dropdown-divider mb-0"></div>
                             </li>
@@ -153,90 +465,7 @@
         <!--end header -->
         <!--start page wrapper -->
         <div class="page-wrapper">
-            <div class="page-content">
-                <!--breadcrumb-->
-                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">NAABOL</div>
-                    <div class="ps-3">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 p-0">
-                                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">Planes de Vuelo</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-                <!--end breadcrumb-->
-                <div class="card">
-                    <div class=" card-body">
-                        <form id="form_busqueda_1">
-                            <div class="row">
-                                <div class="col-1">
-                                    <select class=" form-control form-control-sm" name="month">
-                                        <option value="1">Enero</option>
-                                        <option value="2">Febrero</option>
-                                        <option value="3">Marzo</option>
-                                        <option value="4">Abril</option>
-                                        <option value="5">Mayo</option>
-                                        <option value="6">Junio</option>
-                                        <option value="7">Julio</option>
-                                        <option value="8">Agosto</option>
-                                        <option value="9">Septiembre</option>
-                                        <option value="10">Octubre</option>
-                                        <option value="11">Noviembre</option>
-                                        <option value="12">Diciembre</option>
-                                    </select>
-                                </div>
-                                <div class="col-1">
-                                    <input type="number" class="form-control  form-control-sm" value="2023"
-                                        name="year" required max="2023" min="2008">
-                                </div>
-                                <div class="col-1">
-                                    <button class="btn btn-danger btn-sm" type="submit">FIltrar <i
-                                            class="bx bx-search-alt-2"></i></button>
-                                </div>
-                                <div class="col-9" style="text-align: right">
-                                    <button class="btn btn-dark btn-sm" type="button" id="btn_busquedaParam">Filtro
-                                        Parametrizado <i class="bx bx-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="example2" class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>RECEPCIONADO</th>
-                                        <th>MATRICULA / # VUELO</th>
-                                        <th>REGLA</th>
-                                        <th>TIPO Y CATEGORIA</th>
-                                        <th>PROCEDENCIA</th>
-                                        <th>DESTINO</th>
-                                        <th>CABECERA</th>
-                                        <th>MENSAJE</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>RECEPCIONADO</th>
-                                        <th>MATRICULA / # VUELO</th>
-                                        <th>REGLA</th>
-                                        <th>TIPO Y CATEGORIA</th>
-                                        <th>PROCEDENCIA</th>
-                                        <th>DESTINO</th>
-                                        <th>CABECERA</th>
-                                        <th>MENSAJE</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="page-content"></div>
         </div>
         <!--end page wrapper -->
         <!--start overlay-->
@@ -246,7 +475,7 @@
                 class='bx bxs-up-arrow-alt'></i></a>
         <!--End Back To Top Button-->
         <footer class="page-footer">
-            <p class="mb-0">NAABOL- DEP. SISTEMAS 2023</p>
+            <p class="mb-0">NAABOL - Dep. SISTEMAS 2023</p>
         </footer>
     </div>
     <!--end wrapper-->
@@ -256,11 +485,11 @@
         </div>
         <div class="switcher-body">
             <div class="d-flex align-items-center">
-                <h5 class="mb-0 text-uppercase">Personalizar Estio</h5>
+                <h5 class="mb-0 text-uppercase">Configuración de Estilos</h5>
                 <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
             </div>
             <hr />
-            <h6 class="mb-0">Estilos</h6>
+            <h6 class="mb-0">Estilo </h6>
             <hr />
             <div class="d-flex align-items-center justify-content-between">
                 <div class="form-check">
@@ -279,7 +508,7 @@
             <hr />
             <div class="form-check">
                 <input class="form-check-input" type="radio" id="minimaltheme" name="flexRadioDefault">
-                <label class="form-check-label" for="minimaltheme">Minimal Theme</label>
+                <label class="form-check-label" for="minimaltheme">Minimalista</label>
             </div>
             <hr />
             <h6 class="mb-0">Color de Cabezera</h6>
@@ -313,7 +542,7 @@
                 </div>
             </div>
             <hr />
-            <h6 class="mb-0">Color de la barra lateral</h6>
+            <h6 class="mb-0">Color Lateral</h6>
             <hr />
             <div class="header-colors-indigators">
                 <div class="row row-cols-auto g-3">
@@ -346,70 +575,19 @@
         </div>
     </div>
     <!--end switcher-->
-    {{-- todo / MODAL START --}}
-    <div class="modal fade" id="mod_busqParametrica" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">FPL - FILTRAR</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form id="formBuscarParam">
-                    <div class="modal-body">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <label for="basic-url" class="form-label">Ingrese datos.</label>
-                                <div class="input-group mb-3 input-group-sm" name='m'> <span
-                                        class="input-group-text input-group-sm" id="basic-addon1">#....
-                                        Matricula</span>
-                                    <input type="text" class="form-control form-control-sm" placeholder="Username"
-                                        aria-label="Username" aria-describedby="basic-addon1" name="m">
-                                </div>
-                                <div class="input-group mb-3 input-group-sm">
-                                    <span class="input-group-text" id="basic-addon2">Fecha Inicial:</span>
-                                    <input type="date" class="form-control" aria-label="Recipient's username"
-                                        aria-describedby="basic-addon2" name="f1">
-                                </div>
-                                <div class="input-group mb-3 input-group-sm">
-                                    <span class="input-group-text" id="basic-addon3">Fecha Final:</span>
-                                    <input type="date" class="form-control" id="basic-url"
-                                        aria-describedby="basic-addon3" name="f2">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Continuar</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    {{-- todo / MODAL END --}}
-
-
     <!-- Bootstrap JS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="public/assets/js/bootstrap.bundle.min.js"></script>
     <!--plugins-->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-    <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-    <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
-    {{-- todo / funciones Naabol --}}
-
-
-
-    <script></script>
+    <script src="public/assets/js/jquery.min.js"></script>
+    <script src="public/assets/plugins/simplebar/js/simplebar.min.js"></script>
+    <script src="public/assets/plugins/metismenu/js/metisMenu.min.js"></script>
+    <script src="public/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="public/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="public/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
     <!--app JS-->
-    <script src="assets/js/app.js"></script>
-    <script type="module" src="{{asset('js/fpl/fun1.js')}}"></script>
+    <script src="public/assets/js/app.js"></script>
+    <script src="{{ asset('public/js/nav.js') }}"></script>
+    <script type="module" src="{{asset('public/js/fpl/fun1.js')}}"></script>
 </body>
 
 </html>
